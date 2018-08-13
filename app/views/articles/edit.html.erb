@@ -1,4 +1,4 @@
-<h1>Create an article</h1>
+<h1>Edit article</h1>
 
 <% if @article.errors.any? %>
 	<h3>The following errors prevented the article from getting created</h3>
@@ -19,10 +19,10 @@
 		<%= f.text_area :description%>
 	</p>
 	<p>
-		<%= f.submit %>
+		<%= f.submit %> 
 	</p>
-	<br><br><br>
-	<p>
-		<%= link_to "Back listing articles", articles_path %>
-	</p>
+  <br><br><br>
+  <p>
+    <%= link_to "Back listing articles", articles_path %>
+  </p>
 <% end %>
