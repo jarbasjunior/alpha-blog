@@ -6,8 +6,9 @@
 <p>
 	Description: <%= @article.description %>
 </p>
-<td><%= link_to "Edit", edit_article_path(@article) %></td>
-<td><%= link_to "Remove", (@article) %></td>
+<td><%= link_to "Edit", edit_article_path(@article) %></td> |
+<td><%= link_to "Remove", article_path(@article), method: :delete, data: {confirm: "Are you sure remove " + "\"" + @article.title + "\"?"} %></td> |
+<td><%= link_to "New Article", new_article_path %></td>
 <br><br><br>
 <p>
 	<%= link_to "Back listing articles", articles_path %>
