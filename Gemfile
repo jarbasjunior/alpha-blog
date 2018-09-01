@@ -51,5 +51,6 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  # before deploy heroku -> "bundle exec rake assets:precompile"
 end
 

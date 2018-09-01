@@ -1,4 +1,4 @@
-<h1 align="center">Listing all articles</h1>
+<h1 align="center">Artigos</h1>
 
 <% @articles.each do |article| %>
   <div class="row">
@@ -12,8 +12,8 @@
           <%= truncate(article.description, length: 50) %>
         </div>
         <div class="article-actions">
-          <%= link_to "Edit article", edit_article_path(article), class: "btn btn-xs btn-primary" %>
-          <%= link_to "Remove this article", article_path(article), class: "btn btn-xs btn-danger", method: :delete, data: {confirm: "Are you sure remove " + "\"" + article.title + "\"?"} %>
+          <%= link_to "Editar artigo", edit_article_path(article), class: "btn btn-xs btn-primary" %>
+          <%= link_to "Remover artigo", article_path(article), class: "btn btn-xs btn-danger", method: :delete, data: {confirm: "Deseja realmente remover " + "\"" + article.title + "\"?"} %>
         </div>
       </div>
     </div>

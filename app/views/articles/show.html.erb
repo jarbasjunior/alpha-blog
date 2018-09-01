@@ -4,8 +4,7 @@
 	<hr>
 	<%= simple_format(@article.description) %>
   <div class="article-actions">
-    <%= link_to "Edit article", edit_article_path(@article), class: "btn btn-xs btn-primary" %>
-    <%= link_to "Remove this article", article_path(@article), class: "btn btn-xs btn-danger", method: :delete, data: {confirm: "Are you sure remove " + "\"" + @article.title + "\"?"} %>
-    <%= link_to "Back listing articles", articles_path, class: "btn btn-xs btn-success" %>
+    <%= link_to "Editar artigo", edit_article_path(@article), class: "btn btn-xs btn-primary" %>
+    <%= link_to "Remover artigo", article_path(@article), class: "btn btn-xs btn-danger", method: :delete, data: {confirm: "Deseja realmente remover " + "\"" + @article.title + "\"?"} %>
   </div>
 </div>
