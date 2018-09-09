@@ -1,0 +1,43 @@
+<h1 align="center">Inscreva-se no Alpha Blog</h1>
+<br><br>
+
+<%= render "shared/errors", obj: @user %>
+
+<div class="row">
+	<div class="col-xs-12">
+		<%= form_for(@user, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+			<div class="form-group">
+				<div class="control-label col-sm-2">
+					<%= f.label :Nome %>
+				</div>
+				<div class="col-sm-6">
+					<%= f.text_field :username, class: "form-control", placeholder: "Nome do usuário", autofocus: true %>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="control-label col-sm-2">
+					<%= f.label :Email %>
+				</div>
+				<div class="col-sm-10">
+					<%= f.email_field :email, class: "form-control", placeholder: "E-mail do usuário", autofocus: true %>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="control-label col-sm-2">
+					<%= f.label :Senha %>
+				</div>
+				<div class="col-sm-10">
+					<%= f.password_field :password, class: "form-control", placeholder: "Senha do usuário", autofocus: true %>
+				</div>
+			</div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+				  <%= f.submit "Inscrever-se", class: "btn btn-primary btn-lg" %> 
+        </div>
+      </div>
+      <div class="col-xs-6 col-xs-offset-4">
+		    [ <%= link_to "Cancelar inscrição e retornar a página inicial", root_path %> ]
+      </div>
+		<% end %>
+	</div>
+</div>
