@@ -1,0 +1,27 @@
+<% obj.each do |article| %>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="well well-lg">
+        <div class="article-title">
+          <%= article.id %>
+          <%= link_to article.title, article_path(article) %>
+        </div>
+        <div class="article-body">
+          <%= truncate(article.description, length: 50) %>
+          <div class="article-meta-details">
+            <small>
+              Criado por: <%= article.user.username %>, a
+                          <%= time_ago_in_words(article.created_at) %>. Atualizado a
+                          <%= time_ago_in_words(article.updated_at) %>
+            </small>
+          </div>
+        </div>
+        <div class="article-actions">
+          <%= link_to "Editar artigo", edit_article_path(article), class: "btn btn-xs btn-primary" %>
+          <%= link_to "Remover artigo", article_path(article), class: "btn btn-xs btn-danger", method: :delete, data: {confirm: "Deseja realmente remover " + "\"" + article.title + "\"?"} %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <tr>
+<% end %>
