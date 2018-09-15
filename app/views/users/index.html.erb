@@ -1,0 +1,28 @@
+<h1 align="center">Usuários</h1>
+
+<% @users.each do |user| %>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="well well-lg">
+        <div class="article-title">
+          <%= user.id %>
+          <%= link_to user.username, user_path(user) %>
+        </div>
+        <div class="article-body">
+          <%= user.email %>
+          <div class="article-meta-details">
+            <small>
+              Inscrito a: <%= time_ago_in_words(user.created_at) %>. Atualizado a
+                           <%= time_ago_in_words(user.updated_at) %>.
+            </small>
+          </div>
+        </div>
+        <div class="article-actions">
+          <%= link_to "Editar usuário", edit_user_path(user), class: "btn btn-xs btn-primary" %>
+          <%= link_to "Remover usuário", user_path(user), class: "btn btn-xs btn-danger", method: :delete, data: {confirm: "Deseja realmente remover o usuário " + "\"" + user.username + "\"?"} %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <tr>
+<% end %>
