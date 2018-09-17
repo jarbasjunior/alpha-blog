@@ -6,4 +6,7 @@
 </div>
 <br>
 <h4 align="center">Artigos cadastrados por <%= @user.username%></h4>
-<%= render "articles/article", obj: @user.articles %>
+<%= render "articles/article", obj: @user_articles %>
+<div class="center">
+	<%= will_paginate @user_articles %>
+</div>
