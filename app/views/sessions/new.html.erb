@@ -1,0 +1,27 @@
+<h1 align="center">Entrar</h1>
+<br><br>
+
+<%= form_for(:session, :html => {class: "form-horizontal", role: "form"}, url: login_path) do |f| %>
+	<div class="form-group">
+		<div class="col-sm-offset-2 control-label col-sm-2">
+			<%= f.label :Email %>
+		</div>
+		<div class="col-sm-4">
+			<%= f.email_field :email, class: "form-control", placeholder: "Email do usuário", autofocus: true %>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 control-label col-sm-2">
+			<%= f.label :Senha %>
+		</div>
+		<div class="col-sm-4">
+			<%= f.password_field :password, class: "form-control", autocomplete: "off" %>
+		</div>
+	</div>
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-10">
+      <%= link_to "Voltar", root_path, class: "btn btn-danger" %> 
+	  <%= f.submit "Entrar", class: "btn btn-primary" %> 
+    </div>
+  </div>
+<% end %>

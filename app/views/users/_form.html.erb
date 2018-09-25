@@ -29,11 +29,9 @@
 			</div>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-				  <%= f.submit(@user.new_record? ? "Inscrever-se": "Salvar alterações", class: "btn btn-primary btn-lg") %> 
+				  <%= link_to "Voltar", root_path, class: "btn btn-danger " %>
+				  <%= f.submit(@user.new_record? ? "Inscrever-se": "Salvar alterações", class: "btn btn-primary ") %>
         </div>
-      </div>
-      <div class="col-xs-6 col-xs-offset-4">
-		    [ <%= link_to(@user.new_record? ? "Cancelar inscrição e retornar a página inicial": "Cancelar atualização e retornar a página inicial", root_path) %> ]
       </div>
 		<% end %>
 	</div>
