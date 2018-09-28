@@ -53,7 +53,7 @@ class ArticlesController < ApplicationController
     end
 
     def require_same_user
-      if @article.user != current_user
+      if @article.user != current_user and !current_user.admin?
         flash[:danger] = "Você não tem permissão para editar ou remover este artigo!"
         redirect_to root_path
       end

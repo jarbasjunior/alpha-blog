@@ -16,7 +16,7 @@
             </small>
           </div>
         </div>
-        <% if logged_in? && article.user == current_user %>
+        <% if logged_in? && (article.user == current_user || current_user.admin?)%>
           <div class="article-actions">
             <%= link_to "Editar artigo", edit_article_path(article), class: "btn btn-xs btn-primary" %>
             <%= link_to "Remover artigo", article_path(article), class: "btn btn-xs btn-danger", method: :delete, data: {confirm: "Deseja realmente remover " + "\"" + article.title + "\"?"} %>

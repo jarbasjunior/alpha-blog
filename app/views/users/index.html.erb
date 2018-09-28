@@ -10,6 +10,9 @@
             <%= link_to user.username, user_path(user) %>
           </li>
           <li><small><%= pluralize(user.articles.count, "Artigo") if user.articles %></small></li>
+          <% if logged_in? and current_user.admin? %>
+            <li><%= link_to "Excluir usuário", user_path(user), class: "btn btn-xs btn-danger", method: :delete, data: { confirm: "Deseja realmente excluir o usuário \"#{user.username}\"?"} %></li>
+          <% end %>
         </div>
       </div>
     </ul>

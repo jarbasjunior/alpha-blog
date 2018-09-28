@@ -15,7 +15,7 @@
 	<h4 class="right description"><strong>Descrição:</strong></h4>
 	<%= simple_format(@article.description) %>
   <div class="article-actions">
-    <% if logged_in? && @article.user == current_user %>
+    <% if logged_in? && (@article.user == current_user || current_user.admin?) %>
       <%= link_to "Editar artigo", edit_article_path(@article), class: "btn btn-xs btn-primary" %>
       <%= link_to "Remover artigo", article_path(@article), class: "btn btn-xs btn-danger", method: :delete, data: {confirm: "Deseja realmente remover " + "\"" + @article.title + "\"?"} %>
     <% end %>
