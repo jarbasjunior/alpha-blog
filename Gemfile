@@ -3,6 +3,10 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.0.7'
+# gem test
+gem 'minitest', '5.10.3'
+# gem test template
+gem 'rails-controller-testing', '~> 1.0', '>= 1.0.2'
 # has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 # Use SCSS for stylesheets
