@@ -1,4 +1,5 @@
 <h2 align="center">Título: <%= @article.title %></h2>	
+<br>
 <div class="well col-xs-8 col-xs-offset-2">
   <ul class="listing">
     <div class="row center">
@@ -14,6 +15,9 @@
   </ul>
 	<h4 class="right description"><strong>Descrição:</strong></h4>
 	<%= simple_format(@article.description) %>
+  <% if @article.categories.any? %>
+    <h4 class="right description"><strong>Categorias: <%= render @article.categories %></strong></h4>
+  <% end %>
   <div class="article-actions">
     <% if logged_in? && (@article.user == current_user || current_user.admin?) %>
       <%= link_to "Editar artigo", edit_article_path(@article), class: "btn btn-xs btn-primary" %>
