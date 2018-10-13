@@ -59,5 +59,6 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
   # before deploy heroku -> "bundle exec rake assets:precompile"
+  # after deploy heroku  -> "heroku run rails db:migrate"
 end
 

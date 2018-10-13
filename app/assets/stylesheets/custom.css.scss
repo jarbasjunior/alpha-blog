@@ -4,12 +4,12 @@ $navbar-default-bg:	darkred;
 @import "bootstrap";
 
 #logo {
-	float: left;
-	font-size: 1.7em;
-	letter-spacing: -1px;
-	color: white;
-	text-transform: uppercase;
-	font-weight: bold;
+  float: left;
+  font-size: 1.7em;
+  letter-spacing: -1px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -17,39 +17,39 @@ $navbar-default-bg:	darkred;
 }
 
 .center{
-	text-align: center;
+  text-align: center;
 }
 
 .jumbotron {
-	background-image: asset-url("ruby.png");
-	background-size: cover;
-	height: 500px;
+  background-image: asset-url("ruby.png");
+  background-size: cover;
+  height: 500px;
 }
 
 .jumbotron h1{
-	text-align: center;
-	color: honeydew;
-	margin-bottom: 30px;
-	letter-spacing: -1px;
-	font-weight: bold;
+  text-align: center;
+  color: honeydew;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+  font-weight: bold;
 }
 
 .btn-xlarge {
-	font-size: 1.7em;
-	background-color: midnightblue;
+  font-size: 1.7em;
+  background-color: midnightblue;
 }
 
 .article-actions {
-	border-top: 1px solid #eaeaea;
-	padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  padding-top: 5px;
 }
 
 .description {
-	margin-top: 0;
+  margin-top: 0;
 }
 
 .article-title {
-	font-weight: bold;
+  font-weight: bold;
   font-size: 1.5em;
 }
 
@@ -71,37 +71,37 @@ $navbar-default-bg:	darkred;
 }
 
 .badge {
-	background-color: #CEF6F5;
-	text-transform: uppercase;
+  background-color: #CEF6F5;
+  text-transform: uppercase;
   letter-spacing: -1px;
   font-weight: bold;
 }
 
 .input_checkbox input {
-	width: auto !important;
+  width: auto !important;
 }
 
 footer {
-	margin-top: 45px;
-	padding-top: 55px;
-	border-top: 1px solid #eaeaea;
-	color: black;
+  margin-top: 45px;
+  padding-top: 55px;
+  border-top: 1px solid #eaeaea;
+  color: black;
 }
 
 footer a:hover {
-	color: black;
+  color: black;
 }
 
 footer small {
-	float: left;
+  float: left;
 }
 
 footer ul {
-	float: right;
-	list-style: none;
+  float: right;
+  list-style: none;
 }
 
 footer ul li {
-	float: left;
-	margin-left: 15px;
+  float: left;
+  margin-left: 15px;
 }
