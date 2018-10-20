@@ -1,15 +1,15 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :show]
-  before_action :require_same_user, only: [:edit, :update, :destroy]
-  before_action :require_admin, only: [:destroy]
+  before_action :set_user, only: %i[edit update show]
+  before_action :require_same_user, only: %i[edit update destroy]
+  before_action :require_admin, only: %i[destroy]
 
   def index
     @users = User.paginate(page: params[:page], per_page: 3)
   end
 
-	def new
-		@user = User.new
-	end
+  def new
+    @user = User.new
+  end
 
   def create
     @user = User.new(user_params)
@@ -22,8 +22,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def show
     @user_articles = @user.articles.paginate(page: params[:page], per_page: 3)
@@ -35,36 +34,40 @@ class UsersController < ApplicationController
       redirect_to articles_path(@user)
     else
       render 'edit'
-    end  
+    end
   end
 
-   def destroy
+  def destroy
     @user = User.find(params[:id])
     @user.destroy
-    flash[:success] = "Usuário removido com sucesso!"
+    flash[:success] = 'Usuário removido com sucesso!'
     redirect_to users_path
   end
 
   private
-    def user_params
-      params.require(:user).permit(:username, :email, :password)  
-    end
-    
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    def require_same_user
-      if @user != current_user and !current_user.admin?
-        flash[:danger] = "Você não tem permissão para editar o perfil de outro usuário!"
-        redirect_to root_path 
-      end
-    end
+  def user_params
+    params.require(:user).permit(:username, :email, :password)
+  end
 
-    def require_admin
-      if logged_in? and !current_user.admin?
-        flash[:danger] = "Apenas usuários com perfil de administrador podem executar esta ação!"
-        redirect_to root_path
-      end
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def require_same_user
+    if !logged_in?
+      flash[:danger] = 'Você deve realizar o login para executar esta ação!'
+      redirect_to users_path
+    elsif @user != current_user && !current_user.admin?
+      flash[:danger] = 'Você não tem permissão para editar o perfil de outro usuário!'
+      redirect_to users_path
     end
+  end
+
+  def require_admin
+    return unless logged_in? && !current_user.admin?
+
+    flash[:danger] = 'Apenas usuários com perfil de administrador podem executar esta ação!'
+    redirect_to root_path
+  end
 end

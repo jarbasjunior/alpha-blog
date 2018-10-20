@@ -1,0 +1,23 @@
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/*'
+    - !ruby/regexp /old_and_unused\.rb$/
+
+# Permit a::b
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+# Disable documentation in class
+Documentation:
+  Enabled: false
+
+# Size max line
+Metrics/LineLength:
+  Max: 114
+  
+# Size max method name
+Metrics/AbcSize:
+  Max: 30

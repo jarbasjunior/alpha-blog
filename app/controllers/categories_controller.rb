@@ -1,13 +1,13 @@
 class CategoriesController < ApplicationController
-  before_action :require_admin, except: [:index, :show]
+  before_action :require_admin, except: %i[index show]
 
   def index
     @categories = Category.paginate(page: params[:page], per_page: 3)
   end
 
   def create
-  	@category = Category.new(category_params)
-  	if @category.save
+    @category = Category.new(category_params)
+    if @category.save
       flash[:success] = "Categoria \"#{@category.name}\" criada com sucesso!"
       redirect_to categories_path
     else
@@ -26,11 +26,11 @@ class CategoriesController < ApplicationController
   def update
     @category = Category.find(params[:id])
     if @category.update(category_params)
-      flash[:success] = "Categoria atualizada com sucesso!"
+      flash[:success] = 'Categoria atualizada com sucesso!'
       redirect_to categories_path(@category)
     else
       render 'edit'
-    end  
+    end
   end
 
   def show
@@ -39,15 +39,18 @@ class CategoriesController < ApplicationController
   end
 
   private
-    def category_params
-      params.require(:category).permit(:name)  
-    end
 
-    def require_admin
-      if !logged_in? || (logged_in? and !current_user.admin?)
-        flash[:danger] = "Apenas usuários com perfil de administrador podem executar esta ação!"
-        redirect_to categories_path
-      end
-    end
+  def category_params
+    params.require(:category).permit(:name)
+  end
 
+  def require_admin
+    if !logged_in?
+      flash[:danger] = 'Você deve realizar o login e ser admin para executar esta ação!'
+      redirect_to categories_path
+    elsif logged_in? && !current_user.admin?
+      flash[:danger] = 'Apenas usuários com perfil de administrador podem executar esta ação!'
+      redirect_to categories_path
+    end
+  end
 end
